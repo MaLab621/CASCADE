@@ -11,6 +11,28 @@ bulk_CASCADE(bulk_expr, degs = cascade_degs)
 
 \item{degs}{Built-in gene set to calculate CASCADE values in bulk datasets.}
 }
+\value{
+Data frame with the following columns:
+L1: expression of low-lineage score markers
+L2: expression of high-lineage score markers
+E1: expression of low-eco score markers
+E2: expression of high-eco score markers
+lineage_score: lineage score in each sample
+eco_score: eco score in each sample
+tumor_score: tumor score in each sample
+quadrant: lineage-eco quadrant for each sample
+}
 \description{
 CASCADE calculation for bulk transcriptomic samples.
+}
+\examples{
+bulk_expr: cell1 cell2 cell3 ...
+     gene1   5.2   4.9   6.1
+     gene2   6.3   5.8   7.0
+     gene3   6.6   7.4   6.9
+     .
+     .
+     .
+bulk_CASCADE(bulk_expr)
+
 }

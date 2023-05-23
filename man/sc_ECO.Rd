@@ -5,19 +5,49 @@
 \title{Ecological (Eco) score calculation for single cell samples.
 Yields a hazard score, resource score, and ecological score for each sample.}
 \usage{
-sc_ECO(tme_comp, subtype_scores)
+sc_ECO(tme_comp, subtype_scores = eco_subtype_scores)
 }
 \arguments{
 \item{tme_comp}{Data frame containing nontumor cell subtype composition for
 each sample. Samples are on the rows, subtypes on the columns. Rows must be
-scaled to sum to 1. Column names (subtypes) must all be included in the
-rownames of \code{subtype_scores}}
+scaled to sum to 1.}
 
 \item{subtype_scores}{Data frame containing nontumor cell subtype weights
 and labels. Rownames are subtypes. Must contain a \code{category} column that
 labels each subtype as a "Hazard" or "Resource" and a \code{score} column that
 lists a weight for each subtype. Defaults to a built-in weight table curated
-from a single-cell study of liver cancer.}
+from a single-cell study of liver cancer.
+
+The following cell types are included in the default table. If using the
+default, include as many of these cell types as possible in your data.
+Not all cell types between this table and your data must overlap, but any
+shared types must be an exact string match.
+
+B cells
+Plasma cells
+CD4-CD69-memory T cells
+CD4-FOXP3-regulatory T cells
+CD4-IL7R-central memory T cells
+CD4-KLRB1-T cells
+CD8-CD69-memory T cells
+CD8-GZMH-effector T cells
+CD8-GZMK-effector memory T cells
+MAIT
+NK-CD160-tissue resident
+NK-GNLY-circulatory
+T cells-MKI67-proliferative
+c0-LUM-inflammatory CAF
+c1-MYH11-vascular CAF
+c2-APOA1-hepatocyte like CAF
+c0-S100A8-Monocyte
+c1-CXCL10-M1 Macrophage
+c2-CCL4L2-M2 Macrophage
+c3-TPSB2-Mast cells
+c0-VWF-endothelial
+c1-ANGPT2-endothelial
+c2-CRHBP-endothelial
+c3-CCL5-endothelial
+c4-RGS5-endothelial}
 }
 \value{
 Data frame with three columns: "hazards" - the hazard score,
@@ -34,4 +64,18 @@ resource-heavy conditions. This metric is uniformly distributed from 0 to 1.
 \details{
 Hazards and resources are described from the perspective of a tumor, where
 hazards attack it while resources aid its survival.
+}
+\examples{
+samples <- c("s1", "s2", "s3")
+tme_comp <- data.frame(cell1 = c(0.2, 0.8, 0.1),
+                       cell2 = c(0.5, 0.2, 0.4),
+                       cell3 = c(0.3, 0.0, 0.5))
+rownames(tme_comp) <- samples
+
+subtype_scores <- data.frame(category = c("Hazard", "Resource", "Resource"),
+                             score = c(0.9, 0.7, 0.4))
+rownames(subtype_scores) <- c("cell1", "cell2", "cell3")
+
+sc_ECO(tme_comp, subtype_scores)
+
 }

@@ -4,10 +4,10 @@
 \alias{sc_LINEAGE}
 \title{Lineage score calculation for single cell samples}
 \usage{
-sc_LINEAGE(expr_data, idents, lineage_genes)
+sc_LINEAGE(expr_data, idents, lineage_genes = top_lineage_genes)
 }
 \arguments{
-\item{expr_data}{Matrix of normalized gene counts from single-cell dataset.
+\item{expr_data}{Matrix of normalized gene counts from a single-cell dataset.
 Genes are on the rows and samples are on the columns.}
 
 \item{idents}{Vector of sample labels for the columns of \code{expr_data}.}
@@ -26,5 +26,25 @@ Data frame containing average gene expression for each lineage and
 the final lineage score in the "lineage_score" column. Samples are row names.
 }
 \description{
-Lineage score calculation for single cell samples
+Lineage score reflects characteristics of a tumor cell population. It is
+uniformly distributed between 0 and 1, where a low score indicates a
+hepatocytic or myeloid cell-like lineage and a high score indicates a
+cholangiocytic or mesenchymal lineage.
+}
+\examples{
+expr_data: cell1 cell2 cell3 ...
+     gene1     0   0.1   1.2
+     gene2   0.9     0     0
+     gene3   2.2   2.6   1.5
+     .
+     .
+     .
+idents <- c("Sample1", "Sample1", "Sample2")
+lineage_genes <- list(CLTC = c("gene12", "gene23", "gene45"),
+                      HLTC = c("gene1", "gene91", "gene92", "gene93"),
+                      MCTC = c("gene2", "gene96", "gene97", "gene98"),
+                      MLTC = c("gene5", "gene6", "gene14"))
+
+sc_LINEAGE(expr_data, idents, lineage_genes)
+
 }
