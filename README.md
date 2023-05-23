@@ -1,6 +1,6 @@
 # CASCADE
 
-**CASCADE** description
+**CASCADE** , or **C**ancer **A**ggressiveness via **S**ingle-**C**ell **A**nalysis **D**uring **E**volution, is a bioinformatics tool that quantitatively analyzes liver tumors from single-cell or bulk transcriptomic data. 
 
 ## Citation
 
