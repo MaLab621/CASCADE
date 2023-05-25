@@ -23,7 +23,7 @@ CASCADE works with either single-cell or bulk transcriptomic data. For single-ce
 Single Seurat object:
 ```r
 obj <- CreateSeuratObject(counts = gene_counts)
-obj@meta.data$malignancy_label <- c("malignant", "non-malignant", malignant")
+obj@meta.data$malignancy_label <- c("malignant", "non-malignant", malignant") # your label vector would be much longer than this
 cascade_df <- sc_CASCADE(total_obj = obj, malignancy_col = "malignancy_label")
 ```
 
