@@ -74,6 +74,8 @@ ggplot(cascade_df, aes(x = lineage_score, y = eco_score)) +
   theme(aspect.ratio = 1)
 ```
 
+![Example quadrant plot](imgs/example_quadrants.png)
+
 ## Usage notes
 
 CASCADE is specifically designed to analyze liver tumors. As such, it contains very specific requirements on how inputted data should look. For single-cell data, only the following 25 cell type labels will be considered in the calculation of the ecological score:
