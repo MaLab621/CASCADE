@@ -41,7 +41,7 @@ nonmalignant_obj$sample_name <- c("s1", "s4", "s5")                     # your l
 nonmalignant_obj$cell_type <- c("MAIT", "B cells", "CD4-KLRB1-T cells") # your label vector would be much longer than this
 
 cascade_df <- sc_CASCADE(tumor_obj = malignant_obj, nontumor_obj = nonmalignant_obj,
-                         ident_col = "sample_name", subtype_col = "cell_type")
+                         ident_col = "sample_name", subtype_col = "cell_type", min_n_cells = 10)
 ```
 
 Running with bulk data:
@@ -61,3 +61,38 @@ ggplot(cascade_df, aes(x = lineage_score, y = eco_score)) +
   theme_bw() +
   theme(aspect.ratio = 1)
 ```
+
+## Usage notes
+
+CASCADE is specifically designed to analyze liver tumors. As such, it contains very specific requirements on how inputted data should look. For single-cell data, only the following 25 cell type labels will be considered in the calculation of the ecological score:
+
+B cells
+Plasma cells
+CD4-CD69-memory T cells
+CD4-FOXP3-regulatory T cells
+CD4-IL7R-central memory T cells
+CD4-KLRB1-T cells
+CD8-CD69-memory T cells
+CD8-GZMH-effector T cells
+CD8-GZMK-effector memory T cells
+MAIT
+NK-CD160-tissue resident
+NK-GNLY-circulatory
+T cells-MKI67-proliferative
+c0-LUM-inflammatory CAF
+c1-MYH11-vascular CAF
+c2-APOA1-hepatocyte like CAF
+c0-S100A8-Monocyte
+c1-CXCL10-M1 Macrophage
+c2-CCL4L2-M2 Macrophage
+c3-TPSB2-Mast cells
+c0-VWF-endothelial
+c1-ANGPT2-endothelial
+c2-CRHBP-endothelial
+c3-CCL5-endothelial
+c4-RGS5-endothelial
+
+Your data does not need to contain all 25 of these cell types. You can label cells as types not included in this list, but those cells will be excluded from all score calculations. Make sure that labels are an exact match in spelling and case. 
+
+Additionally, the lineage score bases its calculations on the expression of genes related to 4 specific tumor cell lineages: Cholangiocyte-like tumor cells, Hepatocyte-like tumor cells, Myeloid cell-like tumor cells, and Mesenchymal-like tumor cells. No action is required to accomodate this functionality, but do consider if these lineages are appropriate for your dataset.
+
