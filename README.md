@@ -66,8 +66,8 @@ ggplot(cascade_df, aes(x = lineage_score, y = eco_score)) +
 
 CASCADE is specifically designed to analyze liver tumors. As such, it contains very specific requirements on how inputted data should look. For single-cell data, only the following 25 cell type labels will be considered in the calculation of the ecological score:
 
-B cells
-Plasma cells
+B cells  
+Plasma cells 
 CD4-CD69-memory T cells
 CD4-FOXP3-regulatory T cells
 CD4-IL7R-central memory T cells
