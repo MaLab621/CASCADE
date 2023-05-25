@@ -6,13 +6,11 @@
 - Ecological score: representation of the tumor microenvironment. Ranges from 0 to 1, where a 0 indicates a restrictive tumor microenvironment and a 1 indicates a lenient one.
 - Tumor score: the product of the lineage and ecological score.
 
-The intersection of the lineage and ecological scores separates samples into 4 quadrants based on whether they are greater than or less than 0.5 along each metric. These quadrants are termed as follows:
+<img align="right" src="imgs/blank_quadrants.png">The intersection of the lineage and ecological scores separates samples into 4 quadrants based on whether they are greater than or less than 0.5 along each metric. These quadrants are termed as follows:
 - A1: lineage score < 0.5 and ecological score < 0.5
 - A2: lineage score < 0.5 and ecological score >= 0.5
 - B1: lineage score >= 0.5 and ecological score < 0.5
 - B2: lineage score >= 0.5 and ecological score >= 0.5
-
-![Blank quadrant plot](imgs/blank_quadrants.png)
 
 The tumor score is an alternative to the lineage and ecological scores that distills this quadrant system down to a single number.
 
