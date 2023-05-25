@@ -57,11 +57,13 @@ nonmalignant_obj$cell_type <- c("MAIT", "B cells", "CD4-KLRB1-T cells") # your l
 cascade_df <- sc_CASCADE(tumor_obj = malignant_obj, nontumor_obj = nonmalignant_obj,
                          ident_col = "sample_name", subtype_col = "cell_type", min_n_cells = 10)
 ```
+![Example output with single-cell data](imgs/example_output_sc.png)
 
 Running with bulk data:
 ```r
 cascade_df <- bulk_CASCADE(bulk_expr = bulk_data)
 ```
+![Example output with bulk data](imgs/example_output_bulk.png)
 
 Sample visualization plot:
 
