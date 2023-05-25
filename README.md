@@ -20,21 +20,21 @@ library(CASCADE)
 
 CASCADE works with either single-cell or bulk transcriptomic data. For single-cell data, input either a single Seurat object containing malignancy information in the metadata or separate Seurat objects for malignant and nonmalignant cells. For bulk data, input a normalized matrix with genes on the rows and samples on the columns.
 
-Single Seurat object:
+Running with a single Seurat object:
 ```r
 obj <- CreateSeuratObject(counts = gene_counts)
 obj@meta.data$malignancy_label <- c("malignant", "non-malignant", malignant") # your label vector would be much longer than this
 cascade_df <- sc_CASCADE(total_obj = obj, malignancy_col = "malignancy_label")
 ```
 
-Separate malignant and non-malignant objects:
+Running with separate malignant and non-malignant objects:
 ```r
 malignant_obj <- CreateSeuratObject(counts = malignant_gene_counts)
 nonmalignant_obj <- CreateSeuratObject(counts = nonmalignant_gene_counts)
 cascade_df <- sc_CASCADE(tumor_obj = malignant_obj, nontumor_obj = nonmalignant_obj)
 ```
 
-Bulk data:
+Running with bulk data:
 ```r
 cascade_df <- bulk_CASCADE(bulk_expr = bulk_data)
 ```
