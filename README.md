@@ -62,6 +62,9 @@ cascade_df <- bulk_CASCADE(bulk_expr = bulk_data)
 ```
 
 Sample visualization plot:
+
+![Example quadrant plot](imgs/example_quadrants.png)
+
 ```r
 ggplot(cascade_df, aes(x = lineage_score, y = eco_score)) +
   geom_point() +
@@ -73,8 +76,6 @@ ggplot(cascade_df, aes(x = lineage_score, y = eco_score)) +
   theme_bw() +
   theme(aspect.ratio = 1)
 ```
-
-![Example quadrant plot](imgs/example_quadrants.png)
 
 ## Usage notes
 
