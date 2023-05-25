@@ -7,7 +7,8 @@
 - Tumor score: the product of the lineage and ecological score.
 
 The intersection of the lineage and ecological scores separates samples into 4 quadrants based on whether they are greater than or less than 0.5 along each metric. These quadrants are termed as follows:
-<img align="right" src="imgs/blank_quadrants.png" width = "200">- A1: lineage score < 0.5 and ecological score < 0.5
+<img align="right" src="imgs/blank_quadrants.png" width = "200">
+- A1: lineage score < 0.5 and ecological score < 0.5
 - A2: lineage score < 0.5 and ecological score >= 0.5
 - B1: lineage score >= 0.5 and ecological score < 0.5
 - B2: lineage score >= 0.5 and ecological score >= 0.5
