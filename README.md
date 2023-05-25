@@ -34,10 +34,10 @@ cascade_df <- sc_CASCADE(total_obj = obj, malignancy_col = "malignancy_label",
 Running with separate malignant and non-malignant objects:
 ```r
 malignant_obj <- CreateSeuratObject(counts = malignant_gene_counts)
-malignant_obj$sample_name <- c("s1", "s2", "s2")                        # your label vector would be much longer than this
+malignant_obj$sample_name <- c("s1", "s2", "s3")                        # your label vector would be much longer than this
 
 nonmalignant_obj <- CreateSeuratObject(counts = nonmalignant_gene_counts)
-nonmalignant_obj$sample_name <- c("s1", "s1", "s2")                     # your label vector would be much longer than this
+nonmalignant_obj$sample_name <- c("s1", "s4", "s5")                     # your label vector would be much longer than this
 nonmalignant_obj$cell_type <- c("MAIT", "B cells", "CD4-KLRB1-T cells") # your label vector would be much longer than this
 
 cascade_df <- sc_CASCADE(tumor_obj = malignant_obj, nontumor_obj = nonmalignant_obj,
