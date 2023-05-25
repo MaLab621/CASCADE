@@ -74,7 +74,7 @@ ggplot(cascade_df, aes(x = lineage_score, y = eco_score)) +
   theme(aspect.ratio = 1)
 ```
 
-![Example quadrant plot](imgs/example_quadrants.tif)
+![Example quadrant plot](imgs/example_quadrants.jpg)
 
 ## Usage notes
 
