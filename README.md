@@ -12,6 +12,8 @@ The intersection of the lineage and ecological scores separates samples into 4 q
 - B1: lineage score >= 0.5 and ecological score < 0.5
 - B2: lineage score >= 0.5 and ecological score >= 0.5
 
+<img style="float: right;" src="imgs/blank_quadrants.png">
+
 The tumor score is an alternative to the lineage and ecological scores that distills this quadrant system down to a single number.
 
 ## Citation
