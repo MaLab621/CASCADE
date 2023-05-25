@@ -64,7 +64,7 @@ cascade_df <- bulk_CASCADE(bulk_expr = bulk_data)
 
 Sample visualization plot:
 
-<img align="left" src="imgs/example_quadrants.png" width = "500">
+<src="imgs/example_quadrants.png" width = "500">
 
 ```r
 ggplot(cascade_df, aes(x = lineage_score, y = eco_score)) +
